@@ -218,7 +218,7 @@ footer{font-size:13px;color:var(--muted);text-align:center}
    Set ENDPOINT to the URL that receives submissions (for example an n8n Webhook node
    or your form backend). Data is POSTed as multipart/form-data, with each passport
    file as traveller_<n>_passport_file. Leave empty to run in preview mode. */
-const ENDPOINT = "https://businessblueprint.awesomate.io/webhook/balesin-2027-travel-v2";
+const ENDPOINT = "https://businessblueprint.awesomate.io/webhook/balesin-2027-travel-v3";
 const MAX_FILE_MB = 10;
 
 /* ISO 3166-1 alpha-3 code and English short name. The code is what gets submitted. */
@@ -385,6 +385,7 @@ form.addEventListener("submit", async e => {
   fd.delete("traveller_count_choice");
   fd.set("traveller_count", String(travellerCount()));
   fd.set("registrant_phone", normPhone($("#reg_phone").value));
+  fd.set("booking_reference", normPhone($("#reg_phone").value)); // for older workflow versions
   fd.set("submitted_at", new Date().toISOString());
   const done = msg => { $("#doneMsg").textContent = msg; showStep(4); $(".steps").hidden = true; };
 
