@@ -389,15 +389,26 @@ form.addEventListener("submit", async e => {
   const done = msg => { $("#doneMsg").textContent = msg; showStep(4); $(".steps").hidden = true; };
 
   if (!ENDPOINT) return done("Preview only: this form isn’t connected yet, so nothing was sent. Once it’s connected, registrants will see a confirmation here.");
-  const btn = $("#submitBtn"); btn.disabled = true; btn.textContent = "Sending…";
-  try {
-    const res = await fetch(ENDPOINT, { method: "POST", body: fd });
-    if (!res.ok) throw new Error(res.status);
-    done(`We’ve received details for ${travellerCount()} traveller${travellerCount() > 1 ? "s" : ""}. The team will contact you by email or SMS on ${fd.get("registrant_phone")} if anything else is needed.`);
-  } catch (x) {
+  const btn = $("#submitBtn"); btn.disabled = true; btn.textContent = "Uploading…";
+  const n = travellerCount(), phone = fd.get("registrant_phone");
+  const fail = () => {
     err.textContent = "Your details couldn’t be sent. Check your connection and press Submit again. If it keeps failing, contact the events team.";
-    err.hidden = false;
-  } finally { btn.disabled = false; btn.textContent = "Submit travel details"; }
+    err.hidden = false; btn.disabled = false; btn.textContent = "Submit travel details";
+    window.onbeforeunload = null;
+  };
+  // Show success as soon as the upload has fully reached the server,
+  // without waiting for the sheet and Drive steps to finish.
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", ENDPOINT);
+  xhr.upload.onprogress = e => { if (e.lengthComputable) btn.textContent = `Uploading… ${Math.round(e.loaded / e.total * 100)}%`; };
+  xhr.upload.onload = () => {
+    window.onbeforeunload = null;
+    done(`We’ve received details for ${n} traveller${n > 1 ? "s" : ""}. The team will contact you by email or SMS on ${phone} if anything else is needed.`);
+  };
+  xhr.upload.onerror = fail;
+  xhr.onerror = () => { if (step !== 4) fail(); };
+  window.onbeforeunload = e => { e.preventDefault(); e.returnValue = ""; };
+  xhr.send(fd);
 });
 
 showStep(1);
