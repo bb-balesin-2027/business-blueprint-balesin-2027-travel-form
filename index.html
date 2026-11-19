@@ -118,9 +118,9 @@ footer{font-size:13px;color:var(--muted);text-align:center}
           <input type="text" id="reg_name" name="registrant_name" autocomplete="name" required></div>
         <div class="field"><label for="reg_email">Email address<span class="req">*</span></label>
           <input type="email" id="reg_email" name="registrant_email" autocomplete="email" required></div>
-        <div class="field"><label for="booking_ref">Booking reference<span class="req">*</span></label>
-          <input type="text" id="booking_ref" name="booking_reference" class="mono" required>
-          <p class="hint">Found in your registration confirmation email.</p></div>
+        <div class="field"><label for="reg_phone">Mobile number (for SMS)<span class="req">*</span></label>
+          <input type="tel" id="reg_phone" name="registrant_phone" autocomplete="tel" inputmode="tel" placeholder="+61 412 345 678" required>
+          <p class="hint">Include your country code, starting with +.</p></div>
         <fieldset class="field full" id="weekSet" data-required>
           <legend class="legend">Balesin conference week<span class="req">*</span></legend>
           <div class="choices">
@@ -189,9 +189,9 @@ footer{font-size:13px;color:var(--muted);text-align:center}
         <input type="date" data-k="dob" required></div>
       <div class="field"><label data-for="gender">Gender<span class="req">*</span></label>
         <select data-k="gender" required>
-          <option value="">Select…</option><option>Female</option><option>Male</option><option>X (unspecified)</option>
+          <option value="">Select…</option><option>Female</option><option>Male</option>
         </select>
-        <p class="hint">As shown on the passport, if required for travel documents.</p></div>
+        <p class="hint">As shown on the passport.</p></div>
       <div class="field"><label data-for="nationality">Nationality<span class="req">*</span></label>
         <select data-k="nationality" data-countries required></select></div>
       <div class="field"><label data-for="passport_number">Passport number<span class="req">*</span></label>
@@ -314,6 +314,8 @@ form.addEventListener("input", e => { const f = e.target.closest(".field,.check"
 form.addEventListener("change", e => { const f = e.target.closest(".field,.check"); if (f) clearErr(f); });
 
 const today = new Date().toISOString().slice(0, 10);
+// "+61 (0)412 345-678" or "0061..." -> "+61412345678"
+const normPhone = s => { let v = String(s).trim().replace(/\(0\)/g, "").replace(/[^\d+]/g, ""); if (v.startsWith("00")) v = "+" + v.slice(2); return v; };
 function validateStep(n) {
   const sec = $(`[data-step="${n}"]`);
   let firstBad = null;
@@ -323,6 +325,7 @@ function validateStep(n) {
     const field = inp.closest(".field");
     if (!inp.value.trim()) return bad(field, "This field is required.");
     if (inp.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value)) bad(field, "Enter a valid email address, like name@example.com.");
+    if (inp.type === "tel" && !/^\+\d{8,15}$/.test(normPhone(inp.value))) bad(field, "Enter your mobile number with country code, like +61 412 345 678.");
   });
   $$("fieldset[data-required]", sec).forEach(fs => { if (!$("input:checked", fs)) bad(fs, "Please choose one option."); });
   if (n === 1 && $("#cOther").checked && !travellerCount()) bad($("#otherWrap"), "Enter a number from 6 to 12.");
@@ -354,7 +357,7 @@ function buildReview() {
   const h = t => { const x = document.createElement("strong"); x.textContent = t; return x; };
   r.append(h("Booking"), dl([
     ["Registrant", $("#reg_name").value], ["Email", $("#reg_email").value],
-    ["Week", $("input[name=conference_week]:checked")?.value || ""], ["Reference", $("#booking_ref").value.toUpperCase()],
+    ["Week", $("input[name=conference_week]:checked")?.value || ""], ["Mobile", normPhone($("#reg_phone").value)],
     ["Travellers", String(travellerCount())]]));
   $$(".traveller").forEach((t, i) => {
     const v = k => $(`[data-k=${k}]`, t).value;
@@ -381,7 +384,7 @@ form.addEventListener("submit", async e => {
   const fd = new FormData(form);
   fd.delete("traveller_count_choice");
   fd.set("traveller_count", String(travellerCount()));
-  fd.set("booking_reference", $("#booking_ref").value.trim().toUpperCase());
+  fd.set("registrant_phone", normPhone($("#reg_phone").value));
   fd.set("submitted_at", new Date().toISOString());
   const done = msg => { $("#doneMsg").textContent = msg; showStep(4); $(".steps").hidden = true; };
 
@@ -390,7 +393,7 @@ form.addEventListener("submit", async e => {
   try {
     const res = await fetch(ENDPOINT, { method: "POST", body: fd });
     if (!res.ok) throw new Error(res.status);
-    done(`We’ve received details for ${travellerCount()} traveller${travellerCount() > 1 ? "s" : ""} on booking ${fd.get("booking_reference")}. The team will be in touch if anything else is needed.`);
+    done(`We’ve received details for ${travellerCount()} traveller${travellerCount() > 1 ? "s" : ""}. The team will contact you by email or SMS on ${fd.get("registrant_phone")} if anything else is needed.`);
   } catch (x) {
     err.textContent = "Your details couldn’t be sent. Check your connection and press Submit again. If it keeps failing, contact the events team.";
     err.hidden = false;
