@@ -190,8 +190,6 @@ footer{display:flex;gap:8px;justify-content:center;align-items:center;font-size:
     </ul>
   </div>
 
-  <div class="preview-note" id="previewBanner" hidden>Preview mode: this form is not connected to a submission endpoint yet, so nothing you enter is sent or stored.</div>
-
   <ol class="steps" aria-label="Progress">
     <li data-s="1"><span class="dot">1</span><span class="lbl">Booking</span></li>
     <li data-s="2"><span class="dot">2</span><span class="lbl">Travellers</span></li>
@@ -357,7 +355,6 @@ const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const form = $("#form");
 let step = 1;
-if (!ENDPOINT) $("#previewBanner").hidden = false;
 
 function showStep(n, focusEl) {
   step = n;
