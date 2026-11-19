@@ -14,7 +14,7 @@
 /* Layout: campaign banner, then one form column; section titles echo the banner's navy label blocks with a yellow offset */
 :root{
   --bg:#edf2f7; --surface:#ffffff; --fg:#0b1f3a; --muted:#56657a; --line:#d2dbe6; --line-strong:#b7c4d4;
-  --navy:#002248; --navy-ink:#ffffff; --yellow:#ffe600; --sky:#3fb8e0; --sky-soft:#e6f4fa;
+  --navy:#002248; --navy-deep:#001631; --navy-ink:#ffffff; --yellow:#ffe600; --sky:#3fb8e0; --sky-soft:#e6f4fa;
   --field:#f6f9fc; --danger:#c0262d; --danger-soft:#fdecec; --ok:#17804a; --ok-soft:#e3f5ea;
   --shadow:0 1px 2px rgba(0,34,72,.06),0 8px 24px -16px rgba(0,34,72,.25);
   --font-display:"Barlow Condensed","Arial Narrow",sans-serif; --font-body:"Barlow",system-ui,-apple-system,sans-serif;
@@ -173,29 +173,93 @@ button:disabled{opacity:.75;cursor:progress;transform:none}
 .next svg{color:var(--sky);margin-top:2px}
 footer{display:flex;gap:8px;justify-content:center;align-items:center;font-size:13px;color:var(--muted);text-align:center}
 @media (prefers-reduced-motion:no-preference){.card{animation:in .25s ease-out}@keyframes in{from{transform:translateY(6px)}to{transform:none}}button.primary{transition:transform .12s,box-shadow .12s}}
+
+/* ===== Webpage layout ===== */
+body{background:var(--bg);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.layout{flex:1 0 auto;width:100%}
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy-deep);color:#fff;border-bottom:3px solid var(--yellow)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--navy-deep)}
+.topbar-in{max-width:1180px;margin:0 auto;padding-block:12px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:16px}
+.brand{font-family:var(--font-body);font-weight:700;font-size:20px;letter-spacing:-.01em;line-height:1}
+.brand span{color:#fff}.brand b{color:var(--sky);font-weight:700}
+.topbar-event{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#c9d6e6;padding-left:16px;border-left:1px solid rgba(255,255,255,.2)}
+.secure{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#c9d6e6}
+.secure svg{width:15px;height:15px;color:var(--yellow)}
+@media (max-width:640px){.topbar-event{display:none}.brand{font-size:18px}}
+.hero{position:relative;overflow:hidden;background:var(--navy-deep)}
+.hero-bg{position:absolute;inset:-40px;background:url("balesin-2027-header.webp") center/cover;filter:blur(28px) saturate(1.15);opacity:.55;transform:scale(1.1)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:60px;background:linear-gradient(transparent,var(--bg))}
+.hero-in{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding-block:32px 28px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.hero-banner{display:block;width:100%;height:auto;aspect-ratio:4/1;border-radius:14px;box-shadow:0 24px 50px -24px rgba(0,0,0,.7)}
+@media (max-width:640px){.hero-in{padding-block:18px 20px}.hero-banner{border-radius:10px}}
+.layout{max-width:1180px;margin:0 auto;padding-block:8px 56px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px;align-items:start}
+.main-col{display:flex;flex-direction:column;gap:20px;min-width:0}
+.side{position:sticky;top:76px;display:flex;flex-direction:column;gap:16px}
+.side-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;gap:12px}
+.side-card p{margin:0;color:var(--muted);font-size:15px}
+.side-title{margin:0;font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.side-title::before{content:"";width:6px;height:20px;background:var(--yellow);border-radius:1px}
+.side .needs,.facts{display:flex;flex-direction:column;gap:12px;list-style:none;margin:0;padding:0}
+.side .needs li,.facts li{display:flex;gap:12px;align-items:flex-start;background:none;border:0;padding:0;font-size:14.5px;font-weight:400;line-height:1.45}
+.side .needs svg,.facts svg{color:var(--sky);margin-top:2px;width:22px;height:22px}
+.side .needs b{display:block;font-weight:600;color:var(--fg)}
+.side .needs span{color:var(--muted)}
+.facts span{color:var(--muted)}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .side{position:static;order:-1}
+  .side .side-card:last-child{display:none}
+}
+@media (max-width:980px) and (min-width:641px){.side .needs{flex-direction:row}.side .needs li{flex:1}}
+.site-footer{background:var(--navy-deep);color:#c9d6e6;border-top:3px solid var(--yellow)}
+.footer-in{max-width:1180px;margin:0 auto;padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:14px}
+.foot-note{margin-left:auto;display:flex;gap:6px;align-items:center}
+.foot-note svg{width:15px;height:15px;color:var(--yellow)}
+@media (max-width:640px){.foot-note{margin-left:0}}
+.nav{bottom:0}
+.steps,.traveller,.field,.check{scroll-margin-top:84px}
+.layout.finished{grid-template-columns:minmax(0,760px);justify-content:center}
+
+/* ===== Boxed site frame ===== */
+body{background:var(--navy-deep)}
+.backdrop{position:fixed;inset:-60px;z-index:0;background:url("balesin-2027-header.webp") center/cover;filter:blur(36px) saturate(1.1);opacity:.45;transform:scale(1.15)}
+.site{position:relative;z-index:1;width:min(1140px,calc(100% - 48px));margin:32px auto 40px;background:var(--bg);border-radius:18px;overflow:clip;box-shadow:0 30px 80px -30px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.06);display:flex;flex-direction:column;flex:1 0 auto}
+.topbar{border-radius:0}
+.topbar-in,.hero-in,.layout,.footer-in{max-width:none;padding-left:32px;padding-right:32px}
+.hero{background:var(--navy-deep)}
+.layout{padding-top:12px}
+@media (max-width:720px){
+  .site{width:100%;margin:0;border-radius:0;box-shadow:none}
+  .backdrop{display:none}
+  .topbar-in,.hero-in,.layout,.footer-in{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+}
 </style>
 
-<div class="page">
-  <div class="banner-img">
-    <img src="balesin-2027-header.webp" width="1600" height="400" alt="Travel details and passport collection form. Business Blueprint 2027 Conference in Balesin.">
+<div class="backdrop" aria-hidden="true"></div>
+<div class="site">
+<header class="topbar">
+  <div class="topbar-in">
+    <span class="brand"><span>Business</span><b>Blueprint</b></span>
+    <span class="topbar-event">Conference 2027 · Balesin Island</span>
+    <span class="secure"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Secure form</span>
   </div>
-  <h1 class="sr-only">Balesin 2027 travel details and passport collection</h1>
+</header>
 
-  <div class="intro">
-    <p>We need these details to arrange charter flights and island transfers for the conference. Please enter every name and number exactly as it appears in each passport.</p>
-    <ul class="needs" aria-label="Before you start">
-      <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="10" r="3.5"/><path d="M8 17h8"/></svg>Each traveller’s passport</li>
-      <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg>A photo of each photo page</li>
-      <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>About 5 minutes</li>
-    </ul>
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-in">
+    <img class="hero-banner" src="balesin-2027-header.webp" width="1600" height="400" alt="Travel details and passport collection form. Business Blueprint 2027 Conference in Balesin.">
+    <h1 class="sr-only">Balesin 2027 travel details and passport collection</h1>
   </div>
+</section>
 
-  <ol class="steps" aria-label="Progress">
-    <li data-s="1"><span class="dot">1</span><span class="lbl">Booking</span></li>
-    <li data-s="2"><span class="dot">2</span><span class="lbl">Travellers</span></li>
-    <li data-s="3"><span class="dot">3</span><span class="lbl">Confirm</span></li>
-  </ol>
-
+<main class="layout">
+  <div class="main-col">
+    <ol class="steps" aria-label="Progress">
+      <li data-s="1"><span class="dot">1</span><span class="lbl">Booking</span></li>
+      <li data-s="2"><span class="dot">2</span><span class="lbl">Travellers</span></li>
+      <li data-s="3"><span class="dot">3</span><span class="lbl">Confirm</span></li>
+    </ol>
   <form id="form" novalidate>
     <!-- STEP 1 -->
     <section class="card" data-step="1">
@@ -279,8 +343,35 @@ footer{display:flex;gap:8px;justify-content:center;align-items:center;font-size:
       </ul>
     </section>
   </form>
+  </div>
 
-  <footer><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Your passport details are used only for Balesin travel and aviation arrangements.</footer>
+  <aside class="side intro">
+    <div class="side-card">
+      <h2 class="side-title">Before you start</h2>
+      <p>We need these details to arrange charter flights and island transfers. Enter every name and number exactly as it appears in each passport.</p>
+      <ul class="needs">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="10" r="3.5"/><path d="M8 17h8"/></svg><span><b>Each traveller’s passport</b>Everyone in your booking, including you.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg><span><b>A photo of each photo page</b>Clear and readable, with the two lines of code at the bottom.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>About 5 minutes</b>Longer for larger groups.</span></li>
+      </ul>
+    </div>
+    <div class="side-card">
+      <h2 class="side-title">Why we need this</h2>
+      <ul class="facts">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16l20-6-20-6 3 6-3 6z"/><path d="M5 10h8"/></svg><span>Charter flights to Balesin need each passenger’s passport details in advance.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg><span>Your details are used only for Balesin travel and aviation arrangements.</span></li>
+      </ul>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-in">
+    <span class="brand"><span>Business</span><b>Blueprint</b></span>
+    <span>Conference 2027 in Balesin</span>
+    <span class="foot-note"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Passport details are used only for Balesin travel and aviation arrangements.</span>
+  </div>
+</footer>
 </div>
 
 <template id="tTraveller">
@@ -568,7 +659,7 @@ form.addEventListener("submit", async e => {
   const done = msg => {
     $("#doneMsg").textContent = msg;
     $("#doneContact").textContent = `If anything else is needed, we’ll contact you by email or SMS on ${phone}.`;
-    showStep(4); $(".steps").hidden = true; $(".intro").hidden = true;
+    showStep(4); $(".steps").hidden = true; $(".intro").hidden = true; document.querySelector(".layout").classList.add("finished");
   };
 
   if (!ENDPOINT) return done("Preview only: this form isn’t connected yet, so nothing was sent. Once it’s connected, registrants will see a confirmation here.");
