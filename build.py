@@ -14,8 +14,8 @@ VERSIONS = [
     {"slug": "18-25-april", "dates": "18–25 April 2027", "arrival": "Sunday 18 April 2027"},
 ]
 
-# Live pages are only built once approved; preview pages never submit anything.
-BUILD_LIVE = False
+# Live member pages (connected); preview pages never submit anything.
+BUILD_LIVE = True
 
 
 def render(v, endpoint, preview, base, tools=None, bar=""):
