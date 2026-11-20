@@ -18,7 +18,7 @@ VERSIONS = [
 BUILD_LIVE = False
 
 
-def render(v, endpoint, preview, base):
+def render(v, endpoint, preview, base, tools=None, bar=""):
     out = TEMPLATE
     for token, value in {
         "__DATES_PLAIN__": v["dates"].replace("–", "-"),
@@ -26,10 +26,12 @@ def render(v, endpoint, preview, base):
         "__ARRIVAL__": v["arrival"],
         "__ENDPOINT__": endpoint,
         "__PREVIEW__": "true" if preview else "false",
+        "__TOOLS__": "true" if (preview if tools is None else tools) else "false",
+        "__BARTEXT__": bar,
         "__BASE__": base,
     }.items():
         out = out.replace(token, value)
-    for t in ("__DATES_PLAIN__", "__DATES__", "__ARRIVAL__", "__ENDPOINT__", "__PREVIEW__", "__BASE__"):
+    for t in ("__DATES_PLAIN__", "__DATES__", "__ARRIVAL__", "__ENDPOINT__", "__PREVIEW__", "__TOOLS__", "__BARTEXT__", "__BASE__"):
         assert t not in out, t
     return out
 
@@ -37,7 +39,13 @@ def render(v, endpoint, preview, base):
 for v in VERSIONS:
     p = ROOT / "preview" / v["slug"] / "index.html"
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(render(v, "", True, "../../"))
+    p.write_text(render(v, "", True, "../../", bar="Preview for review. Nothing entered here is submitted."))
+    print("built", p.relative_to(ROOT))
+    # Test links: really submit to n8n (sheet + Drive), for internal testing only.
+    p = ROOT / "test" / v["slug"] / "index.html"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(render(v, ENDPOINT, False, "../../", tools=True,
+                        bar="TEST VERSION. Submissions are real and go to the sheet and Drive. Internal use only, do not send to members."))
     print("built", p.relative_to(ROOT))
     if BUILD_LIVE:
         p = ROOT / v["slug"] / "index.html"

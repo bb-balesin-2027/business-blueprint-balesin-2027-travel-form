@@ -466,6 +466,7 @@ textarea:focus{background:var(--surface);border-color:var(--sky);outline:none;bo
 const ENDPOINT = "";
 const CONF = { dates: "11–18 April 2027", arrival: "Sunday 11 April 2027" };
 const PREVIEW = true;
+const TOOLS = true;   // show the sample-answer bar (preview and test links only)
 const MAX_FILE_MB = 10;
 
 /* ISO 3166-1 alpha-3 code and English short name. The code is what gets submitted. */
@@ -733,7 +734,7 @@ form.addEventListener("submit", async e => {
 });
 
 /* ----- preview tools (preview links only) ----- */
-if (PREVIEW) {
+if (TOOLS) {
   $("#previewBar").hidden = false;
   const sampleFile = () => {
     const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="440" height="300"><rect width="440" height="300" fill="#eef3f8"/><text x="24" y="60" font-family="Arial" font-size="22" fill="#002248">SAMPLE PASSPORT PAGE</text><text x="24" y="268" font-family="monospace" font-size="13" fill="#002248">P&lt;AUSSAMPLE&lt;&lt;TRAVELLER&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</text></svg>';

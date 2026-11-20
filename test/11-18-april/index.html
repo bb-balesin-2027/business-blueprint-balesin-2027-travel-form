@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Balesin Travel Details · 11–18 April 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+</head>
+<body>
+<style>
+/* Layout: campaign banner, then one form column; section titles echo the banner's navy label blocks with a yellow offset */
+:root{
+  --bg:#edf2f7; --surface:#ffffff; --fg:#0b1f3a; --muted:#56657a; --line:#d2dbe6; --line-strong:#b7c4d4;
+  --navy:#002248; --navy-deep:#001631; --navy-ink:#ffffff; --yellow:#ffe600; --sky:#3fb8e0; --sky-soft:#e6f4fa;
+  --field:#f6f9fc; --danger:#c0262d; --danger-soft:#fdecec; --ok:#17804a; --ok-soft:#e3f5ea;
+  --shadow:0 1px 2px rgba(0,34,72,.06),0 8px 24px -16px rgba(0,34,72,.25);
+  --font-display:"Barlow Condensed","Arial Narrow",sans-serif; --font-body:"Barlow",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#06111f; --surface:#0c1d33; --fg:#e7eef7; --muted:#9aabc0; --line:#213753; --line-strong:#2f4a6d;
+  --navy:#1a4380; --navy-ink:#ffffff; --yellow:#ffe600; --sky:#5cc6ea; --sky-soft:#10314a;
+  --field:#0a1829; --danger:#ff8a8f; --danger-soft:#3a1519; --ok:#5fd394; --ok-soft:#0f3324;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -16px rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#06111f; --surface:#0c1d33; --fg:#e7eef7; --muted:#9aabc0; --line:#213753; --line-strong:#2f4a6d;
+  --navy:#1a4380; --navy-ink:#ffffff; --yellow:#ffe600; --sky:#5cc6ea; --sky-soft:#10314a;
+  --field:#0a1829; --danger:#ff8a8f; --danger-soft:#3a1519; --ok:#5fd394; --ok-soft:#0f3324;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -16px rgba(0,0,0,.6); color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.55}
+svg{flex:none}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.page{max-width:760px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+.banner-img img{display:block;width:100%;height:auto;aspect-ratio:4/1;border-radius:12px;box-shadow:0 10px 30px -18px rgba(0,34,72,.6)}
+.intro{display:flex;flex-direction:column;gap:12px}
+.intro p{margin:0;color:var(--muted);max-width:62ch}
+.needs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;list-style:none;margin:0;padding:0}
+.needs li{display:flex;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;font-weight:500;line-height:1.3}
+.needs svg{color:var(--sky)}
+@media (max-width:640px){.needs{display:flex;flex-wrap:wrap;gap:8px}.needs li{padding:7px 10px;font-size:13px;gap:8px}.needs svg{width:18px;height:18px}}
+.preview-note{background:var(--yellow);color:#002248;border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500}
+
+/* stepper */
+.steps{display:flex;list-style:none;margin:0;padding:0}
+.steps li{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center}
+.steps li:not(:first-child)::before{content:"";position:absolute;top:17px;right:calc(50% + 24px);left:calc(-50% + 24px);height:3px;border-radius:2px;background:var(--line)}
+.steps li.done::before,.steps li.on::before{background:var(--navy)}
+.steps .dot{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line-strong);background:var(--surface);color:var(--muted);font-size:17px;font-weight:700;letter-spacing:0}
+.steps li.on{color:var(--fg)}
+.steps li.on .dot{background:var(--navy);border-color:var(--navy);color:var(--navy-ink);box-shadow:3px 3px 0 var(--yellow)}
+.steps li.done .dot{background:var(--yellow);border-color:var(--yellow);color:#002248}
+.steps li.done{color:var(--fg);cursor:pointer}
+.steps li.done:hover .lbl{text-decoration:underline}
+
+/* cards */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:28px 24px 0;display:flex;flex-direction:column;gap:20px}
+.card-head{display:flex;flex-direction:column;gap:10px}
+.eyebrow{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.card h2{align-self:flex-start;font-family:var(--font-display);font-weight:700;font-size:clamp(22px,4.5vw,28px);line-height:1.1;letter-spacing:.03em;text-transform:uppercase;margin:0 8px 6px 0;padding:6px 14px;background:var(--navy);color:var(--navy-ink);box-shadow:6px 6px 0 var(--yellow);text-wrap:balance}
+.card .lead{margin:0;color:var(--muted);max-width:62ch}
+@media (max-width:560px){.card{padding:22px 16px 0;border-radius:12px}}
+
+/* fields */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
+.grid .full{grid-column:1/-1}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+label,.legend{font-weight:600;font-size:15px;line-height:1.35}
+.req{color:var(--danger);margin-left:2px}
+.hint{font-size:13px;color:var(--muted);margin:0;line-height:1.4}
+input[type=text],input[type=email],input[type=tel],input[type=date],input[type=number],select{
+  font:inherit;color:var(--fg);background:var(--field);border:1px solid var(--line-strong);border-radius:8px;padding:10px 12px;width:100%;min-height:48px;transition:border-color .15s,background-color .15s}
+input::placeholder{color:var(--muted);opacity:.75}
+input:hover,select:hover{border-color:var(--muted)}
+input:focus,select:focus{background:var(--surface);border-color:var(--sky);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--sky) 30%,transparent)}
+select{appearance:none;-webkit-appearance:none;padding-right:40px;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%237b8ba1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center}
+input[type=date]{min-height:48px}
+button:focus-visible,.choice input:focus-visible+span,.check input:focus-visible,.drop:focus-within,.steps li:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.mono{font-variant-numeric:tabular-nums;letter-spacing:.08em;text-transform:uppercase}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+fieldset>legend{padding:0;margin-bottom:8px;float:left;width:100%}
+fieldset>legend+*{clear:both}
+fieldset .err{margin-top:6px}
+.choices{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.choices.count{grid-template-columns:repeat(6,1fr)}
+@media (max-width:480px){.choices.count{grid-template-columns:repeat(3,1fr)}}
+.choice{position:relative}
+.choice input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.choice span{display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 12px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--field);font-weight:600;cursor:pointer;transition:border-color .15s,background-color .15s}
+.choice:hover span{border-color:var(--navy)}
+.choice input:checked+span{background:var(--navy);border-color:var(--navy);color:var(--navy-ink);box-shadow:3px 3px 0 var(--yellow)}
+
+/* travellers */
+.travellers{display:flex;flex-direction:column;gap:16px}
+.traveller{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.t-head{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--field);border-bottom:1px solid var(--line)}
+.t-badge{width:34px;height:34px;border-radius:8px;background:var(--navy);color:var(--navy-ink);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:18px;flex:none}
+.t-title{min-width:0;flex:1;display:flex;flex-direction:column;line-height:1.2}
+.t-title b{font-family:var(--font-display);font-size:19px;letter-spacing:.04em;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.t-title span{font-size:13px;color:var(--muted)}
+.pill{flex:none;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--bg);color:var(--muted);border:1px solid var(--line);white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.t-body{padding:18px;display:flex;flex-direction:column;gap:18px}
+.group-label{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0}
+.group-label::after{content:"";flex:1;height:1px;background:var(--line)}
+@media (max-width:560px){.t-head{padding:12px 14px}.t-body{padding:16px 14px}}
+
+/* upload */
+.drop{position:relative;border:2px dashed var(--line-strong);border-radius:10px;background:var(--field);padding:20px;display:flex;align-items:center;gap:16px;transition:border-color .15s,background-color .15s}
+.drop:hover,.drop.over{border-color:var(--sky);background:var(--sky-soft)}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.drop .ico{width:48px;height:48px;border-radius:10px;background:var(--sky-soft);color:var(--sky);display:grid;place-items:center;flex:none}
+.drop .txt{min-width:0;display:flex;flex-direction:column;gap:2px;font-size:14px}
+.drop .txt strong{font-size:15px}
+.drop .txt u{color:var(--sky);text-underline-offset:2px}
+.drop.has{border-style:solid;border-color:var(--ok);background:var(--surface);padding:12px}
+.drop.has .ico{display:none}
+.thumb{width:96px;height:66px;border-radius:6px;background:var(--sky-soft);display:none;place-items:center;flex:none;overflow:hidden;font-family:var(--font-display);font-size:16px;font-weight:700;letter-spacing:.06em;color:var(--fg);border:1px solid var(--line)}
+.drop.has .thumb{display:grid}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.drop.has .txt strong{overflow-wrap:anywhere}
+.file-actions{display:none;gap:8px;margin-left:auto;position:relative;z-index:1}
+.drop.has .file-actions{display:flex}
+.link-btn{font:inherit;font-size:14px;font-weight:600;background:none;border:0;padding:6px 8px;border-radius:6px;color:var(--danger);cursor:pointer;min-height:auto;letter-spacing:0;text-transform:none}
+.link-btn:hover{background:var(--danger-soft)}
+@media (max-width:480px){.drop{flex-wrap:wrap}.drop.has .file-actions{margin-left:0}}
+
+/* confirm */
+.review{display:grid;gap:12px}
+.rcard{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.rcard header{display:flex;align-items:center;gap:10px}
+.rcard h3{margin:0;font-family:var(--font-display);font-size:18px;letter-spacing:.05em;text-transform:uppercase;flex:1}
+.rcard dl{display:grid;grid-template-columns:minmax(100px,32%) 1fr;gap:4px 12px;margin:0;font-size:15px}
+.rcard dt{color:var(--muted)} .rcard dd{margin:0;overflow-wrap:anywhere}
+.edit{font:inherit;font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;background:none;border:1px solid var(--line-strong);border-radius:6px;padding:4px 12px;min-height:34px;color:var(--fg);cursor:pointer}
+.edit:hover{border-color:var(--navy)}
+.checks{display:flex;flex-direction:column;gap:10px}
+.check{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;background:var(--field);transition:border-color .15s,background-color .15s}
+.check:hover{border-color:var(--navy)}
+.check:has(input:checked){border-color:var(--navy);background:var(--sky-soft)}
+.check input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--navy);flex:none;cursor:pointer}
+
+/* errors */
+.err{color:var(--danger);font-size:13.5px;margin:0;font-weight:600;display:flex;gap:6px;align-items:flex-start}
+.err::before{content:"!";flex:none;width:16px;height:16px;border-radius:50%;background:var(--danger);color:var(--surface);font-size:11px;font-weight:800;display:grid;place-items:center;margin-top:2px}
+.invalid input,.invalid select,.invalid .drop,.invalid .choice span,.check.invalid{border-color:var(--danger)}
+.alert{display:flex;gap:10px;align-items:flex-start;background:var(--danger-soft);color:var(--danger);border-radius:10px;padding:12px 14px;font-size:15px;font-weight:600}
+
+/* action bar: sticks to the bottom of the screen on long steps */
+.nav{position:sticky;bottom:0;z-index:2;display:flex;align-items:center;gap:12px;margin:0 -24px;padding:16px 24px calc(16px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line);border-radius:0 0 14px 14px}
+@media (max-width:560px){.nav{margin:0 -16px;padding-left:16px;padding-right:16px}}
+button{font-family:var(--font-display);font-size:18px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;border-radius:6px;padding:10px 20px;min-height:48px;cursor:pointer;border:1.5px solid var(--line-strong);background:var(--surface);color:var(--fg);display:inline-flex;align-items:center;gap:8px;justify-content:center}
+button.ghost:hover{border-color:var(--navy)}
+button.primary{background:var(--navy);border-color:var(--navy);color:var(--navy-ink);box-shadow:4px 4px 0 var(--yellow);margin-left:auto;margin-right:4px}
+button.primary:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--yellow)}
+button.primary:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--yellow)}
+button:disabled{opacity:.75;cursor:progress;transform:none}
+.nav .count{font-size:14px;color:var(--muted)}
+@media (max-width:420px){button{padding:10px 14px;font-size:17px}}
+
+/* done */
+.done-card{align-items:center;text-align:center;padding-bottom:32px}
+.done-card h2{align-self:center}
+.tick{width:72px;height:72px;border-radius:50%;background:var(--yellow);color:#002248;display:grid;place-items:center}
+.next{list-style:none;margin:0;padding:0;display:grid;gap:10px;text-align:left;width:100%;max-width:460px}
+.next li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--field);font-size:15px}
+.next svg{color:var(--sky);margin-top:2px}
+footer{display:flex;gap:8px;justify-content:center;align-items:center;font-size:13px;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion:no-preference){.card{animation:in .25s ease-out}@keyframes in{from{transform:translateY(6px)}to{transform:none}}button.primary{transition:transform .12s,box-shadow .12s}}
+
+/* ===== Webpage layout ===== */
+body{background:var(--bg);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.layout{flex:1 0 auto;width:100%}
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy-deep);color:#fff;border-bottom:3px solid var(--yellow)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--navy-deep)}
+.topbar-in{max-width:1180px;margin:0 auto;padding-block:12px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:16px}
+.brand{font-family:var(--font-body);font-weight:700;font-size:20px;letter-spacing:-.01em;line-height:1}
+.brand span{color:#fff}.brand b{color:var(--sky);font-weight:700}
+.topbar-event{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#c9d6e6;padding-left:16px;border-left:1px solid rgba(255,255,255,.2)}
+.secure{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#c9d6e6}
+.secure svg{width:15px;height:15px;color:var(--yellow)}
+@media (max-width:640px){.topbar-event{display:none}.brand{font-size:18px}}
+.hero{position:relative;overflow:hidden;background:var(--navy-deep)}
+.hero-bg{position:absolute;inset:-40px;background:url("../../balesin-2027-header.webp") center/cover;filter:blur(28px) saturate(1.15);opacity:.55;transform:scale(1.1)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:60px;background:linear-gradient(transparent,var(--bg))}
+.hero-in{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding-block:32px 28px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.hero-banner{display:block;width:100%;height:auto;aspect-ratio:4/1;border-radius:14px;box-shadow:0 24px 50px -24px rgba(0,0,0,.7)}
+@media (max-width:640px){.hero-in{padding-block:18px 20px}.hero-banner{border-radius:10px}}
+.layout{max-width:1180px;margin:0 auto;padding-block:8px 56px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px;align-items:start}
+.main-col{display:flex;flex-direction:column;gap:20px;min-width:0}
+.side{position:sticky;top:76px;display:flex;flex-direction:column;gap:16px}
+.side-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;gap:12px}
+.side-card p{margin:0;color:var(--muted);font-size:15px}
+.side-title{margin:0;font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.side-title::before{content:"";width:6px;height:20px;background:var(--yellow);border-radius:1px}
+.side .needs,.facts{display:flex;flex-direction:column;gap:12px;list-style:none;margin:0;padding:0}
+.side .needs li,.facts li{display:flex;gap:12px;align-items:flex-start;background:none;border:0;padding:0;font-size:14.5px;font-weight:400;line-height:1.45}
+.side .needs svg,.facts svg{color:var(--sky);margin-top:2px;width:22px;height:22px}
+.side .needs b{display:block;font-weight:600;color:var(--fg)}
+.side .needs span{color:var(--muted)}
+.facts span{color:var(--muted)}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .side{position:static;order:-1}
+  .side .side-card:last-child{display:none}
+}
+@media (max-width:980px) and (min-width:641px){.side .needs{flex-direction:row}.side .needs li{flex:1}}
+.site-footer{background:var(--navy-deep);color:#c9d6e6;border-top:3px solid var(--yellow)}
+.footer-in{max-width:1180px;margin:0 auto;padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:14px}
+.foot-note{margin-left:auto;display:flex;gap:6px;align-items:center}
+.foot-note svg{width:15px;height:15px;color:var(--yellow)}
+@media (max-width:640px){.foot-note{margin-left:0}}
+.nav{bottom:0}
+.steps,.traveller,.field,.check{scroll-margin-top:84px}
+.layout.finished{grid-template-columns:minmax(0,760px);justify-content:center}
+
+/* ===== Boxed site frame ===== */
+body{background:var(--navy-deep)}
+.backdrop{position:fixed;inset:-60px;z-index:0;background:url("../../balesin-2027-header.webp") center/cover;filter:blur(36px) saturate(1.1);opacity:.45;transform:scale(1.15)}
+.site{position:relative;z-index:1;width:min(1140px,calc(100% - 48px));margin:32px auto 40px;background:var(--bg);border-radius:18px;overflow:clip;box-shadow:0 30px 80px -30px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.06);display:flex;flex-direction:column;flex:1 0 auto}
+.topbar{border-radius:0}
+.topbar-in,.hero-in,.layout,.footer-in{max-width:none;padding-left:32px;padding-right:32px}
+.hero{background:var(--navy-deep)}
+.layout{padding-top:12px}
+@media (max-width:720px){
+  .site{width:100%;margin:0;border-radius:0;box-shadow:none}
+  .backdrop{display:none}
+  .topbar-in,.hero-in,.layout,.footer-in{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+}
+
+/* ===== Fixed trip details, dietary, preview bar ===== */
+.trip{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;background:var(--sky-soft);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.trip>div{display:flex;flex-direction:column;gap:2px}
+.trip-k{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.trip b{font-size:18px;line-height:1.3}
+.trip .hint{grid-column:1/-1}
+@media (max-width:560px){.trip{grid-template-columns:1fr}}
+textarea{font:inherit;color:var(--fg);background:var(--field);border:1px solid var(--line-strong);border-radius:8px;padding:10px 12px;width:100%;min-height:110px;resize:vertical;transition:border-color .15s,background-color .15s}
+textarea:hover{border-color:var(--muted)}
+textarea:focus{background:var(--surface);border-color:var(--sky);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--sky) 30%,transparent)}
+.invalid textarea{border-color:var(--danger)}
+.diet{border:1px solid var(--line);border-radius:12px;padding:18px}
+.fs-hint{margin:0 0 8px}
+.traveller .check{margin-top:2px}
+.preview-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:var(--yellow);color:#002248;border-radius:12px;padding:12px 16px;font-size:14px;font-weight:600}
+.preview-bar span{flex:1 1 220px}
+.preview-bar button{font-size:15px;min-height:38px;padding:6px 14px;background:#fff;color:#002248;border-color:#002248}
+.rcard .note{margin:0;font-size:14px;color:var(--muted)}
+</style>
+
+<div class="backdrop" aria-hidden="true"></div>
+<div class="site">
+<header class="topbar">
+  <div class="topbar-in">
+    <span class="brand"><span>Business</span><b>Blueprint</b></span>
+    <span class="topbar-event">Conference 11–18 April 2027 · Balesin Island</span>
+    <span class="secure"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Secure form</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-in">
+    <img class="hero-banner" src="../../balesin-2027-header.webp" width="1600" height="400" alt="Travel details and passport collection form. Business Blueprint 2027 Conference in Balesin.">
+    <h1 class="sr-only">Balesin 2027 travel details and passport collection</h1>
+  </div>
+</section>
+
+<main class="layout">
+  <div class="main-col">
+    <div class="preview-bar" id="previewBar" hidden><span>TEST VERSION. Submissions are real and go to the sheet and Drive. Internal use only, do not send to members.</span><button type="button" id="pvFill">Fill sample answers</button><button type="button" id="pvSummary">Jump to summary</button></div>
+    <ol class="steps" aria-label="Progress">
+      <li data-s="1"><span class="dot">1</span><span class="lbl">Booking</span></li>
+      <li data-s="2"><span class="dot">2</span><span class="lbl">Travellers</span></li>
+      <li data-s="3"><span class="dot">3</span><span class="lbl">Confirm</span></li>
+    </ol>
+  <form id="form" novalidate>
+    <!-- STEP 1 -->
+    <section class="card" data-step="1">
+      <div class="card-head">
+        <span class="eyebrow">Step 1 of 3</span>
+        <h2>Booking information</h2>
+        <p class="lead">Details of the primary registrant and the people travelling under your booking.</p>
+      </div>
+      <div class="trip">
+        <div><span class="trip-k">Conference dates</span><b>11–18 April 2027</b></div>
+        <div><span class="trip-k">Arrive at Manila Airport (MNL)</span><b>Sunday 11 April 2027</b></div>
+        <p class="hint">These dates are set for your booking. If they don’t look right, please contact the events team before continuing.</p>
+      </div>
+      <input type="hidden" name="conference_dates" value="11-18 April 2027">
+      <input type="hidden" name="conference_week" value="11-18 April 2027">
+      <input type="hidden" name="manila_arrival_date" value="Sunday 11 April 2027">
+      <div class="grid">
+        <div class="field full"><label for="reg_name">Primary registrant’s full name<span class="req">*</span></label>
+          <input type="text" id="reg_name" name="registrant_name" autocomplete="name" required></div>
+        <div class="field"><label for="reg_email">Email address<span class="req">*</span></label>
+          <input type="email" id="reg_email" name="registrant_email" autocomplete="email" placeholder="name@example.com" required></div>
+        <div class="field"><label for="reg_phone">Mobile number (for SMS)<span class="req">*</span></label>
+          <input type="tel" id="reg_phone" name="registrant_phone" autocomplete="tel" inputmode="tel" placeholder="+61 412 345 678" required>
+          <p class="hint">Include your country code, starting with +.</p></div>
+        <fieldset class="field full" id="nightsSet" data-required>
+          <legend class="legend">Your booking<span class="req">*</span></legend>
+          <p class="hint fs-hint">Select the length of your existing Balesin booking.</p>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="booking_nights" value="5 nights" id="n5"><span>5 nights</span></label>
+            <label class="choice"><input type="radio" name="booking_nights" value="7 nights" id="n7"><span>7 nights</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="field full" id="countSet" data-required>
+          <legend class="legend">How many people are included in your travel party?<span class="req">*</span></legend>
+          <p class="hint fs-hint">Include yourself. This should match the number of people on your booking.</p>
+          <div class="choices count">
+            <label class="choice"><input type="radio" name="traveller_count_choice" value="1" id="c1"><span>1</span></label>
+            <label class="choice"><input type="radio" name="traveller_count_choice" value="2" id="c2"><span>2</span></label>
+            <label class="choice"><input type="radio" name="traveller_count_choice" value="3" id="c3"><span>3</span></label>
+            <label class="choice"><input type="radio" name="traveller_count_choice" value="4" id="c4"><span>4</span></label>
+            <label class="choice"><input type="radio" name="traveller_count_choice" value="5" id="c5"><span>5</span></label>
+            <label class="choice"><input type="radio" name="traveller_count_choice" value="other" id="cOther"><span>6+</span></label>
+          </div>
+        </fieldset>
+        <div class="field" id="otherWrap" hidden><label for="count_other">Number of people<span class="req">*</span></label>
+          <input type="number" id="count_other" min="6" max="12" inputmode="numeric" placeholder="6 to 12">
+          <p class="hint">For groups larger than 12, please contact the events team.</p></div>
+      </div>
+      <label class="check"><input type="checkbox" id="confBooking" name="confirm_booking" value="yes" required><span>I confirm the booking details above are correct, including the number of people in my travel party.</span></label>
+      <div class="alert" data-alert hidden></div>
+      <div class="nav"><button type="button" class="primary" data-next>Continue <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="card" data-step="2" hidden>
+      <div class="card-head">
+        <span class="eyebrow">Step 2 of 3</span>
+        <h2>Traveller details</h2>
+        <p class="lead">Complete one block per person. All information must match the traveller’s passport.</p>
+      </div>
+      <div class="travellers" id="travellers"></div>
+      <div class="diet field">
+        <label for="dietary">Dietary requirements<span class="req">*</span></label>
+        <p class="hint">Please list any dietary requirements for everyone travelling under your booking. If there are none, please enter “None”.</p>
+        <textarea id="dietary" name="dietary_requirements" rows="4" required placeholder="For example: Traveller 2 is vegetarian. Traveller 3 has a nut allergy."></textarea>
+      </div>
+      <div class="alert" data-alert hidden></div>
+      <div class="nav"><button type="button" class="ghost" data-back><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back</button><span class="count" id="tProgress"></span><button type="button" class="primary" data-next>Review <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="card" data-step="3" hidden>
+      <div class="card-head">
+        <span class="eyebrow">Step 3 of 3</span>
+        <h2>Travel details summary</h2>
+        <p class="lead">Review before submitting. Check that everything matches each passport, and use Edit to fix anything that’s wrong.</p>
+      </div>
+      <div class="review" id="review"></div>
+      <div class="checks">
+        <label class="check"><input type="checkbox" id="conf1" name="confirm_details_match" required><span>I have reviewed all the information above and confirm that it is accurate and matches the travellers’ passports.</span></label>
+        <label class="check"><input type="checkbox" id="conf2" name="confirm_all_listed" required><span>I confirm that all travellers included in my booking have been listed.</span></label>
+        <label class="check"><input type="checkbox" id="conf3" name="confirm_understand_use" required><span>I understand that these details are required for Balesin’s travel and aviation arrangements.</span></label>
+      </div>
+      <div class="alert" id="submitErr" hidden></div>
+      <div class="alert" data-alert hidden></div>
+      <div class="nav"><button type="button" class="ghost" data-back><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back</button><button type="submit" class="primary" id="submitBtn">Submit details</button></div>
+    </section>
+
+    <section class="card done-card" data-step="4" hidden>
+      <div class="tick" aria-hidden="true"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h2>Details received</h2>
+      <p class="lead" id="doneMsg" style="max-width:46ch"></p>
+      <ul class="next">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg><span>The events team will use these details for your flights and island transfers.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg><span id="doneContact">If anything else is needed, we’ll contact you by email or SMS.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><span>Need to change something? Submit the form again with the corrected details. The team will use your latest submission.</span></li>
+      </ul>
+    </section>
+  </form>
+  </div>
+
+  <aside class="side intro">
+    <div class="side-card">
+      <h2 class="side-title">Before you start</h2>
+      <p>We need these details to arrange charter flights and island transfers. Enter every name and number exactly as it appears in each passport.</p>
+      <ul class="needs">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="10" r="3.5"/><path d="M8 17h8"/></svg><span><b>Each traveller’s passport</b>Everyone in your booking, including you.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h3l2-3h8l2 3h3v13H3z"/><circle cx="12" cy="13" r="4"/></svg><span><b>A photo of each photo page</b>Clear and readable, with the whole page in view, including the two lines of letters and &lt;&lt;&lt; symbols at the bottom.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2v8a3 3 0 0 0 6 0V2"/><path d="M10 2v20"/><path d="M17 2c-1.7 1.3-2.5 3.7-2.5 6.5 0 2 1 3.5 2.5 3.5V22"/></svg><span><b>Dietary requirements</b>For everyone travelling. Enter “None” if there are none.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>About 5 minutes</b>Longer for larger groups.</span></li>
+      </ul>
+    </div>
+    <div class="side-card">
+      <h2 class="side-title">Why we need this</h2>
+      <ul class="facts">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16l20-6-20-6 3 6-3 6z"/><path d="M5 10h8"/></svg><span>Charter flights to Balesin need each passenger’s passport details in advance.</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg><span>Your details are used only for Balesin travel and aviation arrangements.</span></li>
+      </ul>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-in">
+    <span class="brand"><span>Business</span><b>Blueprint</b></span>
+    <span>Conference 11–18 April 2027 · Balesin</span>
+    <span class="foot-note"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Passport details are used only for Balesin travel and aviation arrangements.</span>
+  </div>
+</footer>
+</div>
+
+<template id="tTraveller">
+  <div class="traveller">
+    <div class="t-head">
+      <span class="t-badge" data-n></span>
+      <div class="t-title"><b data-name>Traveller</b><span data-role></span></div>
+      <span class="pill" data-status></span>
+    </div>
+    <div class="t-body">
+      <p class="group-label">Personal details</p>
+      <div class="grid">
+        <div class="field full"><label data-for="full_name">Full name, exactly as shown on passport<span class="req">*</span></label>
+          <input type="text" data-k="full_name" autocomplete="off" required>
+          <p class="hint">Include all given names and the surname as printed.</p></div>
+        <div class="field"><label data-for="dob">Date of birth<span class="req">*</span></label>
+          <input type="date" data-k="dob" required></div>
+        <div class="field"><label data-for="gender">Gender, as shown on passport<span class="req">*</span></label>
+          <select data-k="gender" required>
+            <option value="">Select…</option><option>Female</option><option>Male</option>
+          </select></div>
+        <div class="field full"><label data-for="nationality">Nationality<span class="req">*</span></label>
+          <select data-k="nationality" data-countries required></select></div>
+      </div>
+      <p class="group-label">Passport details</p>
+      <div class="grid">
+        <div class="field"><label data-for="passport_number">Passport number<span class="req">*</span></label>
+          <input type="text" data-k="passport_number" class="mono" autocomplete="off" required></div>
+        <div class="field"><label data-for="issuing_country">Issuing country<span class="req">*</span></label>
+          <select data-k="issuing_country" data-countries required></select></div>
+        <div class="field"><label data-for="issue_date">Issue date<span class="req">*</span></label>
+          <input type="date" data-k="issue_date" required></div>
+        <div class="field"><label data-for="expiry_date">Expiry date<span class="req">*</span></label>
+          <input type="date" data-k="expiry_date" required>
+          <p class="hint">Needs at least 6 months’ validity after travel.</p></div>
+        <div class="field full"><span class="legend">Photo of the passport information page<span class="req">*</span></span>
+          <div class="drop">
+            <input type="file" data-k="passport_file" accept="image/jpeg,image/png,image/heic,application/pdf" required aria-label="Upload passport information page">
+            <span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></span>
+            <div class="thumb" data-thumb></div>
+            <div class="txt"><strong data-fname>Drag a photo here or <u>browse</u></strong><span class="hint" data-fmeta>JPG, PNG, HEIC or PDF up to 10 MB. Make sure the whole page is in the photo, including the two lines of letters and &lt;&lt;&lt; symbols at the bottom.</span></div>
+            <div class="file-actions"><button type="button" class="link-btn" data-remove>Remove</button></div>
+          </div></div>
+      </div>
+      <label class="check"><input type="checkbox" data-k="confirmed" value="yes" required><span>I confirm that the information provided for this traveller matches their passport exactly.</span></label>
+    </div>
+  </div>
+</template>
+
+<script>
+/* ===== Configuration =====
+   Set ENDPOINT to the URL that receives submissions (for example an n8n Webhook node
+   or your form backend). Data is POSTed as multipart/form-data, with each passport
+   file as traveller_<n>_passport_file. Leave empty to run in preview mode. */
+const ENDPOINT = "https://businessblueprint.awesomate.io/webhook/balesin-2027-travel-v3";
+const CONF = { dates: "11–18 April 2027", arrival: "Sunday 11 April 2027" };
+const PREVIEW = false;
+const TOOLS = true;   // show the sample-answer bar (preview and test links only)
+const MAX_FILE_MB = 10;
+
+/* ISO 3166-1 alpha-3 code and English short name. The code is what gets submitted. */
+const COUNTRIES = [["AFG","Afghanistan"],["ALB","Albania"],["DZA","Algeria"],["ASM","American Samoa"],["AND","Andorra"],["AGO","Angola"],["AIA","Anguilla"],["ATA","Antarctica"],["ATG","Antigua and Barbuda"],["ARG","Argentina"],["ARM","Armenia"],["ABW","Aruba"],["AUS","Australia"],["AUT","Austria"],["AZE","Azerbaijan"],["BHS","Bahamas"],["BHR","Bahrain"],["BGD","Bangladesh"],["BRB","Barbados"],["BLR","Belarus"],["BEL","Belgium"],["BLZ","Belize"],["BEN","Benin"],["BMU","Bermuda"],["BTN","Bhutan"],["BOL","Bolivia"],["BES","Bonaire, Sint Eustatius and Saba"],["BIH","Bosnia and Herzegovina"],["BWA","Botswana"],["BVT","Bouvet Island"],["BRA","Brazil"],["IOT","British Indian Ocean Territory"],["BRN","Brunei Darussalam"],["BGR","Bulgaria"],["BFA","Burkina Faso"],["BDI","Burundi"],["CPV","Cabo Verde"],["KHM","Cambodia"],["CMR","Cameroon"],["CAN","Canada"],["CYM","Cayman Islands"],["CAF","Central African Republic"],["TCD","Chad"],["CHL","Chile"],["CHN","China"],["CXR","Christmas Island"],["CCK","Cocos (Keeling) Islands"],["COL","Colombia"],["COM","Comoros"],["COG","Congo"],["COD","Congo, The Democratic Republic of the"],["COK","Cook Islands"],["CRI","Costa Rica"],["HRV","Croatia"],["CUB","Cuba"],["CUW","Curaçao"],["CYP","Cyprus"],["CZE","Czechia"],["CIV","Côte d'Ivoire"],["DNK","Denmark"],["DJI","Djibouti"],["DMA","Dominica"],["DOM","Dominican Republic"],["ECU","Ecuador"],["EGY","Egypt"],["SLV","El Salvador"],["GNQ","Equatorial Guinea"],["ERI","Eritrea"],["EST","Estonia"],["SWZ","Eswatini"],["ETH","Ethiopia"],["FLK","Falkland Islands (Malvinas)"],["FRO","Faroe Islands"],["FJI","Fiji"],["FIN","Finland"],["FRA","France"],["GUF","French Guiana"],["PYF","French Polynesia"],["ATF","French Southern Territories"],["GAB","Gabon"],["GMB","Gambia"],["GEO","Georgia"],["DEU","Germany"],["GHA","Ghana"],["GIB","Gibraltar"],["GRC","Greece"],["GRL","Greenland"],["GRD","Grenada"],["GLP","Guadeloupe"],["GUM","Guam"],["GTM","Guatemala"],["GGY","Guernsey"],["GIN","Guinea"],["GNB","Guinea-Bissau"],["GUY","Guyana"],["HTI","Haiti"],["HMD","Heard Island and McDonald Islands"],["VAT","Holy See (Vatican City State)"],["HND","Honduras"],["HKG","Hong Kong"],["HUN","Hungary"],["ISL","Iceland"],["IND","India"],["IDN","Indonesia"],["IRN","Iran"],["IRQ","Iraq"],["IRL","Ireland"],["IMN","Isle of Man"],["ISR","Israel"],["ITA","Italy"],["JAM","Jamaica"],["JPN","Japan"],["JEY","Jersey"],["JOR","Jordan"],["KAZ","Kazakhstan"],["KEN","Kenya"],["KIR","Kiribati"],["KWT","Kuwait"],["KGZ","Kyrgyzstan"],["LAO","Laos"],["LVA","Latvia"],["LBN","Lebanon"],["LSO","Lesotho"],["LBR","Liberia"],["LBY","Libya"],["LIE","Liechtenstein"],["LTU","Lithuania"],["LUX","Luxembourg"],["MAC","Macao"],["MDG","Madagascar"],["MWI","Malawi"],["MYS","Malaysia"],["MDV","Maldives"],["MLI","Mali"],["MLT","Malta"],["MHL","Marshall Islands"],["MTQ","Martinique"],["MRT","Mauritania"],["MUS","Mauritius"],["MYT","Mayotte"],["MEX","Mexico"],["FSM","Micronesia, Federated States of"],["MDA","Moldova"],["MCO","Monaco"],["MNG","Mongolia"],["MNE","Montenegro"],["MSR","Montserrat"],["MAR","Morocco"],["MOZ","Mozambique"],["MMR","Myanmar"],["NAM","Namibia"],["NRU","Nauru"],["NPL","Nepal"],["NLD","Netherlands"],["NCL","New Caledonia"],["NZL","New Zealand"],["NIC","Nicaragua"],["NER","Niger"],["NGA","Nigeria"],["NIU","Niue"],["NFK","Norfolk Island"],["PRK","North Korea"],["MKD","North Macedonia"],["MNP","Northern Mariana Islands"],["NOR","Norway"],["OMN","Oman"],["PAK","Pakistan"],["PLW","Palau"],["PSE","Palestine, State of"],["PAN","Panama"],["PNG","Papua New Guinea"],["PRY","Paraguay"],["PER","Peru"],["PHL","Philippines"],["PCN","Pitcairn"],["POL","Poland"],["PRT","Portugal"],["PRI","Puerto Rico"],["QAT","Qatar"],["ROU","Romania"],["RUS","Russian Federation"],["RWA","Rwanda"],["REU","Réunion"],["BLM","Saint Barthélemy"],["SHN","Saint Helena, Ascension and Tristan da Cunha"],["KNA","Saint Kitts and Nevis"],["LCA","Saint Lucia"],["MAF","Saint Martin (French part)"],["SPM","Saint Pierre and Miquelon"],["VCT","Saint Vincent and the Grenadines"],["WSM","Samoa"],["SMR","San Marino"],["STP","Sao Tome and Principe"],["SAU","Saudi Arabia"],["SEN","Senegal"],["SRB","Serbia"],["SYC","Seychelles"],["SLE","Sierra Leone"],["SGP","Singapore"],["SXM","Sint Maarten (Dutch part)"],["SVK","Slovakia"],["SVN","Slovenia"],["SLB","Solomon Islands"],["SOM","Somalia"],["ZAF","South Africa"],["SGS","South Georgia and the South Sandwich Islands"],["KOR","South Korea"],["SSD","South Sudan"],["ESP","Spain"],["LKA","Sri Lanka"],["SDN","Sudan"],["SUR","Suriname"],["SJM","Svalbard and Jan Mayen"],["SWE","Sweden"],["CHE","Switzerland"],["SYR","Syria"],["TWN","Taiwan"],["TJK","Tajikistan"],["TZA","Tanzania"],["THA","Thailand"],["TLS","Timor-Leste"],["TGO","Togo"],["TKL","Tokelau"],["TON","Tonga"],["TTO","Trinidad and Tobago"],["TUN","Tunisia"],["TKM","Turkmenistan"],["TCA","Turks and Caicos Islands"],["TUV","Tuvalu"],["TUR","Türkiye"],["UGA","Uganda"],["UKR","Ukraine"],["ARE","United Arab Emirates"],["GBR","United Kingdom"],["USA","United States"],["UMI","United States Minor Outlying Islands"],["URY","Uruguay"],["UZB","Uzbekistan"],["VUT","Vanuatu"],["VEN","Venezuela"],["VNM","Vietnam"],["VGB","Virgin Islands, British"],["VIR","Virgin Islands, U.S."],["WLF","Wallis and Futuna"],["ESH","Western Sahara"],["YEM","Yemen"],["ZMB","Zambia"],["ZWE","Zimbabwe"],["ALA","Åland Islands"]];
+const COMMON = ["AUS","NZL","PHL","SGP","GBR","USA"];
+const COUNTRY_NAME = Object.fromEntries(COUNTRIES);
+function countryOptions(sel) {
+  const opt = (v, t) => { const o = document.createElement("option"); o.value = v; o.textContent = t; return o; };
+  sel.append(opt("", "Select country…"));
+  const g1 = document.createElement("optgroup"); g1.label = "Common";
+  COMMON.forEach(c => g1.append(opt(c, COUNTRY_NAME[c])));
+  const g2 = document.createElement("optgroup"); g2.label = "All countries";
+  COUNTRIES.forEach(([c, n]) => g2.append(opt(c, n)));
+  sel.append(g1, g2);
+}
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const form = $("#form");
+let step = 1;
+
+function showStep(n, focusEl) {
+  step = n;
+  $$("[data-step]").forEach(s => s.hidden = +s.dataset.step !== n);
+  $$(".steps li").forEach(li => {
+    const s = +li.dataset.s, done = s < n;
+    li.classList.toggle("on", s === n);
+    li.classList.toggle("done", done);
+    $(".dot", li).innerHTML = done ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>' : String(s);
+    li.tabIndex = done ? 0 : -1;
+    li.setAttribute("aria-current", s === n ? "step" : "false");
+  });
+  $$("[data-alert]").forEach(a => a.hidden = true);
+  if (!showStep.ran) { showStep.ran = true; return; }   // no scrolling on first load
+  if (focusEl) focusEl.scrollIntoView({ behavior: "smooth", block: "start" });
+  else $(".steps").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+// completed steps in the tracker are clickable
+$(".steps").addEventListener("click", e => { const li = e.target.closest("li.done"); if (li) showStep(+li.dataset.s); });
+$(".steps").addEventListener("keydown", e => { const li = e.target.closest("li.done"); if (li && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); showStep(+li.dataset.s); } });
+
+/* ----- traveller count ----- */
+function travellerCount() {
+  const c = $("input[name=traveller_count_choice]:checked");
+  if (!c) return 0;
+  if (c.value !== "other") return +c.value;
+  const v = parseInt($("#count_other").value, 10);
+  return v >= 6 && v <= 12 ? v : 0;
+}
+$$("input[name=traveller_count_choice]").forEach(r => r.addEventListener("change", () => {
+  $("#otherWrap").hidden = r.value !== "other";
+  if (r.value === "other") $("#count_other").focus();
+}));
+
+const REQUIRED_KEYS = ["full_name", "dob", "gender", "nationality", "passport_number", "issuing_country", "issue_date", "expiry_date", "passport_file", "confirmed"];
+function travellerStatus(t) {
+  const left = REQUIRED_KEYS.filter(k => { const el = $(`[data-k=${k}]`, t); return el.type === "file" ? !el.files.length : el.type === "checkbox" ? !el.checked : !el.value.trim(); }).length;
+  const pill = $("[data-status]", t);
+  pill.textContent = left ? `${left} to complete` : "Complete";
+  pill.classList.toggle("ok", !left);
+  const name = $("[data-k=full_name]", t).value.trim();
+  $("[data-name]", t).textContent = name || `Traveller ${$("[data-n]", t).textContent}`;
+  return left;
+}
+function updateProgress() {
+  const ts = $$(".traveller"), done = ts.filter(t => !travellerStatus(t)).length;
+  $("#tProgress").textContent = ts.length > 1 ? `${done} of ${ts.length} complete` : "";
+}
+
+function buildTravellers() {
+  const box = $("#travellers"), n = travellerCount();
+  // keep existing blocks so entered data survives going back and forth
+  while (box.children.length > n) box.lastElementChild.remove();
+  for (let i = box.children.length + 1; i <= n; i++) {
+    const el = $("#tTraveller").content.firstElementChild.cloneNode(true);
+    $("[data-n]", el).textContent = i;
+    $("[data-role]", el).textContent = i === 1 ? "Primary registrant" : "Additional traveller";
+    $$("[data-k]", el).forEach(inp => {
+      const id = `t${i}_${inp.dataset.k}`;
+      inp.id = id; inp.name = `traveller_${i}_${inp.dataset.k}`;
+      const lab = $(`[data-for="${inp.dataset.k}"]`, el);
+      if (lab) lab.htmlFor = id;
+    });
+    $$("select[data-countries]", el).forEach(countryOptions);
+    const nat = $("[data-k=nationality]", el), iss = $("[data-k=issuing_country]", el);
+    nat.addEventListener("change", () => { if (!iss.value) { iss.value = nat.value; clearErr(iss.closest(".field")); } });
+    const file = $("input[type=file]", el), drop = $(".drop", el);
+    file.addEventListener("change", () => onFile(file, el));
+    ["dragenter", "dragover"].forEach(ev => drop.addEventListener(ev, () => drop.classList.add("over")));
+    ["dragleave", "drop"].forEach(ev => drop.addEventListener(ev, () => drop.classList.remove("over")));
+    $("[data-remove]", el).addEventListener("click", () => { file.value = ""; onFile(file, el); });
+    const pn = $("[data-k=passport_number]", el);
+    pn.addEventListener("input", () => { const pos = pn.selectionStart; pn.value = pn.value.toUpperCase().replace(/\s+/g, ""); pn.setSelectionRange(pos, pos); });
+    el.addEventListener("input", updateProgress);
+    el.addEventListener("change", updateProgress);
+    box.appendChild(el);
+  }
+  // prefill traveller 1's name from the registrant if still empty
+  const first = $("#t1_full_name");
+  if (first && !first.value) first.value = $("#reg_name").value.trim().toUpperCase();
+  updateProgress();
+}
+
+function onFile(input, el) {
+  const f = input.files[0], drop = input.closest(".drop"), thumb = $("[data-thumb]", el);
+  clearErr(input.closest(".field"));
+  if (!f) {
+    drop.classList.remove("has"); thumb.replaceChildren();
+    $("[data-fname]", el).innerHTML = "Drag a photo here or <u>browse</u>";
+    $("[data-fmeta]", el).textContent = "JPG, PNG, HEIC or PDF up to 10 MB. Make sure the whole page is in the photo, including the two lines of letters and <<< symbols at the bottom.";
+    return updateProgress();
+  }
+  if (f.size > MAX_FILE_MB * 1024 * 1024) {
+    input.value = ""; onFile(input, el);
+    return setErr(input.closest(".field"), `That file is ${(f.size / 1048576).toFixed(1)} MB. Please upload one under ${MAX_FILE_MB} MB.`);
+  }
+  drop.classList.add("has");
+  $("[data-fname]", el).textContent = f.name;
+  $("[data-fmeta]", el).textContent = `${f.size < 1048576 ? Math.max(1, Math.round(f.size / 1024)) + " KB" : (f.size / 1048576).toFixed(1) + " MB"} · Click or tap to replace`;
+  if (f.type.startsWith("image/") && f.type !== "image/heic") {
+    const img = new Image(); img.alt = ""; img.src = URL.createObjectURL(f);
+    thumb.replaceChildren(img);
+  } else thumb.textContent = f.type === "application/pdf" ? "PDF" : "FILE";
+  updateProgress();
+}
+
+/* ----- validation ----- */
+function setErr(field, msg) {
+  clearErr(field);
+  field.classList.add("invalid");
+  const p = document.createElement("p"); p.className = "err"; p.textContent = msg; field.appendChild(p);
+}
+function clearErr(field) { field.classList.remove("invalid"); field.querySelector(":scope > .err")?.remove(); }
+form.addEventListener("input", e => { const f = e.target.closest(".field,.check"); if (f) clearErr(f); });
+form.addEventListener("change", e => { const f = e.target.closest(".field,.check"); if (f) clearErr(f); });
+
+const today = new Date().toISOString().slice(0, 10);
+// "+61 (0)412 345-678" or "0061..." -> "+61412345678"
+const normPhone = s => { let v = String(s).trim().replace(/\(0\)/g, "").replace(/[^\d+]/g, ""); if (v.startsWith("00")) v = "+" + v.slice(2); return v; };
+function validateStep(n) {
+  const sec = $(`[data-step="${n}"]`);
+  let firstBad = null, count = 0;
+  const bad = (field, msg) => { if (!field.classList.contains("invalid")) count++; setErr(field, msg); firstBad ??= field; };
+
+  $$("input[required]:not([type=file]):not([type=checkbox]):not([type=hidden]), select[required], textarea[required]", sec).forEach(inp => {
+    const field = inp.closest(".field");
+    if (!inp.value.trim()) return bad(field, "This field is required.");
+    if (inp.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value)) bad(field, "Enter a valid email address, like name@example.com.");
+    if (inp.type === "tel" && !/^\+\d{8,15}$/.test(normPhone(inp.value))) bad(field, "Enter your mobile number with country code, like +61 412 345 678.");
+  });
+  $$("fieldset[data-required]", sec).forEach(fs => { if (!$("input:checked", fs)) bad(fs, "Please choose one option."); });
+  if (n === 1 && $("#cOther").checked && !travellerCount()) bad($("#otherWrap"), "Enter a number from 6 to 12.");
+
+  if (n === 2) {
+    $$(".traveller", sec).forEach(t => {
+      const v = k => $(`[data-k=${k}]`, t);
+      const dob = v("dob"), iss = v("issue_date"), exp = v("expiry_date"), file = v("passport_file"), pn = v("passport_number");
+      if (dob.value && dob.value >= today) bad(dob.closest(".field"), "Date of birth must be in the past.");
+      if (iss.value && iss.value > today) bad(iss.closest(".field"), "Issue date can’t be in the future.");
+      if (iss.value && dob.value && iss.value < dob.value) bad(iss.closest(".field"), "Issue date is before the date of birth.");
+      if (exp.value && exp.value <= today) bad(exp.closest(".field"), "This passport has expired. A valid passport is needed to travel.");
+      else if (exp.value && iss.value && exp.value <= iss.value) bad(exp.closest(".field"), "Expiry date must be after the issue date.");
+      if (pn.value && !/^[A-Z0-9]{5,12}$/.test(pn.value)) bad(pn.closest(".field"), "Passport numbers are 5 to 12 letters and digits. Check for spaces or symbols.");
+      if (!file.files.length) bad(file.closest(".field"), "Upload a photo or scan of the passport information page.");
+    });
+  }
+  $$(".check", sec).forEach(c => { if (!$("input", c).checked) { c.classList.add("invalid"); count++; firstBad ??= c; } });
+
+  const alert = $("[data-alert]", sec);
+  if (firstBad) {
+    alert.textContent = !$$(".invalid:not(.check)", sec).length
+      ? "Please tick the confirmation marked in red to continue."
+      : `${count} ${count === 1 ? "field needs" : "fields need"} attention. Check the items marked in red.`;
+    alert.hidden = false;
+    firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+    $("input,select", firstBad)?.focus({ preventScroll: true });
+  } else alert.hidden = true;
+  return !firstBad;
+}
+
+/* ----- summary ----- */
+function fmt(d) { return d ? new Date(d + "T00:00").toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" }) : ""; }
+function buildReview() {
+  const r = $("#review"); r.replaceChildren();
+  const card = (title, rows, onEdit, note) => {
+    const c = document.createElement("div"); c.className = "rcard";
+    const h = document.createElement("header"), h3 = document.createElement("h3"), b = document.createElement("button");
+    h3.textContent = title; b.type = "button"; b.className = "edit"; b.textContent = "Edit"; b.addEventListener("click", onEdit);
+    h.append(h3, b); c.append(h);
+    if (rows) {
+      const d = document.createElement("dl");
+      rows.forEach(([k, v]) => { const dt = document.createElement("dt"), dd = document.createElement("dd"); dt.textContent = k; dd.textContent = v || "–"; d.append(dt, dd); });
+      c.append(d);
+    }
+    if (note) { const p = document.createElement("p"); p.className = "note"; p.style.whiteSpace = "pre-wrap"; p.textContent = note; c.append(p); }
+    return c;
+  };
+  const n = travellerCount();
+  r.append(card("Booking information", [
+    ["Primary registrant", $("#reg_name").value.trim()], ["Email", $("#reg_email").value.trim()],
+    ["Mobile", normPhone($("#reg_phone").value)], ["Conference dates", CONF.dates],
+    ["Arrive at Manila Airport", CONF.arrival], ["Booking duration", $("input[name=booking_nights]:checked")?.value],
+    ["Number of travellers", String(n)]], () => showStep(1)));
+  $$(".traveller").forEach((t, i) => {
+    const v = k => $(`[data-k=${k}]`, t).value;
+    const file = $("[data-k=passport_file]", t).files[0];
+    r.append(card(`Traveller ${i + 1}${i === 0 ? " (primary)" : ""}`, [
+      ["Full name", v("full_name").toUpperCase()], ["Date of birth", fmt(v("dob"))], ["Gender", v("gender")],
+      ["Nationality", COUNTRY_NAME[v("nationality")] || v("nationality")],
+      ["Passport number", v("passport_number")], ["Issuing country", COUNTRY_NAME[v("issuing_country")] || v("issuing_country")],
+      ["Issued", fmt(v("issue_date"))], ["Expires", fmt(v("expiry_date"))],
+      ["Passport photo", file ? `Provided (${file.name})` : ""]], () => showStep(2, t)));
+  });
+  r.append(card("Dietary requirements", null, () => showStep(2, $("#dietary").closest(".diet")), $("#dietary").value.trim()));
+}
+
+/* ----- navigation ----- */
+form.addEventListener("click", e => {
+  const back = e.target.closest("[data-back]"), next = e.target.closest("[data-next]");
+  if (back) showStep(step - 1);
+  if (next && validateStep(step)) {
+    if (step === 1) buildTravellers();
+    if (step === 2) buildReview();
+    showStep(step + 1);
+  }
+});
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!validateStep(3)) return;
+  const err = $("#submitErr"); err.hidden = true;
+  const fd = new FormData(form);
+  fd.delete("traveller_count_choice");
+  fd.set("traveller_count", String(travellerCount()));
+  fd.set("registrant_phone", normPhone($("#reg_phone").value));
+  fd.set("booking_reference", normPhone($("#reg_phone").value)); // for older workflow versions
+  fd.set("submitted_at", new Date().toISOString());
+  const n = travellerCount(), phone = fd.get("registrant_phone");
+  const done = msg => {
+    $("#doneMsg").textContent = msg;
+    $("#doneContact").textContent = `If anything else is needed, we’ll contact you by email or SMS on ${phone}.`;
+    showStep(4); $(".steps").hidden = true; $(".intro").hidden = true; document.querySelector(".layout").classList.add("finished");
+  };
+
+  if (!ENDPOINT) return done("Preview only: this form isn’t connected yet, so nothing was sent. Once it’s connected, registrants will see a confirmation here.");
+  const btn = $("#submitBtn"); btn.disabled = true; btn.textContent = "Uploading…";
+  const fail = () => {
+    err.textContent = "Your details couldn’t be sent. Check your connection and press Submit again. If it keeps failing, contact the events team.";
+    err.hidden = false; btn.disabled = false; btn.textContent = "Submit details";
+    window.onbeforeunload = null;
+  };
+  // Show success as soon as the upload has fully reached the server,
+  // without waiting for the sheet and Drive steps to finish.
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", ENDPOINT);
+  xhr.upload.onprogress = e => { if (e.lengthComputable) btn.textContent = `Uploading… ${Math.round(e.loaded / e.total * 100)}%`; };
+  xhr.upload.onload = () => {
+    window.onbeforeunload = null;
+    done(`Thank you. We’ve received travel details for ${n} traveller${n > 1 ? "s" : ""} for ${CONF.dates}.`);
+  };
+  xhr.upload.onerror = fail;
+  xhr.onerror = () => { if (step !== 4) fail(); };
+  window.onbeforeunload = e => { e.preventDefault(); e.returnValue = ""; };
+  xhr.send(fd);
+});
+
+/* ----- preview tools (preview links only) ----- */
+if (TOOLS) {
+  $("#previewBar").hidden = false;
+  const sampleFile = () => {
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="440" height="300"><rect width="440" height="300" fill="#eef3f8"/><text x="24" y="60" font-family="Arial" font-size="22" fill="#002248">SAMPLE PASSPORT PAGE</text><text x="24" y="268" font-family="monospace" font-size="13" fill="#002248">P&lt;AUSSAMPLE&lt;&lt;TRAVELLER&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</text></svg>';
+    return new File([svg], "sample-passport.svg", { type: "image/svg+xml" });
+  };
+  const people = [["JOHN SMITH", "1980-03-15", "Male"], ["JANE SMITH", "1982-06-20", "Female"], ["EMILY SMITH", "2010-01-10", "Female"]];
+  const fillSample = () => {
+    $("#reg_name").value = "John Smith"; $("#reg_email").value = "john.smith@example.com"; $("#reg_phone").value = "+61 412 345 678";
+    $("#n7").checked = true; $("#c3").checked = true; $("#otherWrap").hidden = true; $("#confBooking").checked = true;
+    buildTravellers();
+    $$(".traveller").forEach((t, i) => {
+      const [nm, dob, g] = people[i] || people[0], set = (k, v) => { $(`[data-k=${k}]`, t).value = v; };
+      set("full_name", nm); set("dob", dob); set("gender", g); set("nationality", "AUS"); set("issuing_country", "AUS");
+      set("passport_number", "PA" + (1234560 + i)); set("issue_date", "2022-05-01"); set("expiry_date", "2032-05-01");
+      const inp = $("[data-k=passport_file]", t); try { const dt = new DataTransfer(); dt.items.add(sampleFile()); inp.files = dt.files; onFile(inp, t); } catch (e) {}
+      $("[data-k=confirmed]", t).checked = true;
+    });
+    $("#dietary").value = "None";
+    $$(".invalid").forEach(clearErr); $$("[data-alert]").forEach(a => a.hidden = true);
+    updateProgress();
+  };
+  $("#pvFill").addEventListener("click", () => { fillSample(); showStep(2); });
+  $("#pvSummary").addEventListener("click", () => { fillSample(); buildReview(); showStep(3); });
+}
+
+showStep(1);
+</script>
+
+</body>
+</html>
