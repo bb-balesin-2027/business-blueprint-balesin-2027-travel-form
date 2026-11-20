@@ -742,7 +742,8 @@ if (TOOLS) {
   };
   const people = [["JOHN SMITH", "1980-03-15", "Male"], ["JANE SMITH", "1982-06-20", "Female"], ["EMILY SMITH", "2010-01-10", "Female"]];
   const fillSample = () => {
-    $("#reg_name").value = "John Smith"; $("#reg_email").value = "john.smith@example.com"; $("#reg_phone").value = "+61 412 345 678";
+    const tag = String(Math.floor(100 + Math.random() * 900));   // new sample member each time, so test bookings stay separate
+    $("#reg_name").value = "John Smith " + tag; $("#reg_email").value = `john.smith.${tag}@example.com`; $("#reg_phone").value = `+61 400 000 ${tag}`;
     $("#n7").checked = true; $("#c3").checked = true; $("#otherWrap").hidden = true; $("#confBooking").checked = true;
     buildTravellers();
     $$(".traveller").forEach((t, i) => {
